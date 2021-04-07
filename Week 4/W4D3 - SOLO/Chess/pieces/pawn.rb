@@ -9,7 +9,7 @@ class Pawn < Piece
     end
 
     private
-    def at_start_row?
+    def at_start_row?(color)
     end
 
     def forward_dir

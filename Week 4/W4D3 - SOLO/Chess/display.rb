@@ -8,24 +8,25 @@ class Display
     end
 
     def render
-        @board.rows.each do |row|
-            row.each do |cel|
-                print "#{cel.face}".ljust(2)
-            end
+        print "  #{(0..7).to_a.join(' ')}"
+        print "\n"
+        @board.rows.each_with_index do |row, idx|
+            print "#{idx} "
+            print row.map(&:face).join(' ')
             print "\n"
         end
 
     end
-
-
-
 
 end
 
 b = Board.new
 d = Display.new(b)
 d.render
-# puts
-# puts
-# b.move_piece([1,3], [2,3])
+puts
+puts
+b.move_piece([0,3], [2,4])
+d.render
+# puts '-' * 24
+# b.move_piece([1,0], [1,1])
 # d.render

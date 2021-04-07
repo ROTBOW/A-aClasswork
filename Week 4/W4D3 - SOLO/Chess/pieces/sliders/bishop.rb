@@ -4,7 +4,8 @@ require_relative './slideable.rb'
 class Bishop < Piece
     include Slideable
 
-    def move_difs
+    def move_dirs
+        return :diagonal
     end
     
 end
