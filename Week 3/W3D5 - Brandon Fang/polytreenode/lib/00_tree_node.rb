@@ -44,14 +44,24 @@ class PolyTreeNode
 		nil
 	end
 
-	def bfs(target_val)
+	# def bfs(target_val)
+	# 	queue = [self]
+	# 	until queue.empty?
+	# 		first = queue.shift
+	# 		return first if first.value == target_val
+	# 		queue.concat(first.children) unless first.children.empty?
+	# 	end
+	# 	nil
+	# end
+
+	def bfs(target=nil, &prc )
 		queue = [self]
+		prc ||= Proc.new { |node| node.value == target  }
 		until queue.empty?
-			first = queue.shift
-			return first if first.value == target_val
-			queue.concat(first.children) unless first.children.empty?
+			working_node = queue.shift
+			return working_node if prc.call(working_node)
+			queue.concat(working_node.children)
 		end
-		nil
 	end
 end
 
@@ -71,6 +81,7 @@ a.add_child(c)
 # p a.children
 target = :E
 puts "there should be #{target} below me"
+p a.bfs{|node| node.value == target }
 p a.bfs(target)
 
 #        A
