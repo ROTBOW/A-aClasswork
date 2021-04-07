@@ -9,6 +9,13 @@ class Piece
         @pos = pos
     end
 
+    def move_to?(pos)
+        if moves.include?(pos)
+            return true
+        end
+        false
+    end
+
     def to_s
     end
 

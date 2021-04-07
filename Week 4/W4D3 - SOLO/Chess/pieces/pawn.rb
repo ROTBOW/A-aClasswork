@@ -8,13 +8,6 @@ class Pawn < Piece
         answer
     end
 
-    def move_to?(pos)
-        if moves.include?(pos)
-            return true
-        end
-        false
-    end
-
     private
     def at_start_row?
     end

@@ -1,5 +1,12 @@
-require_relative './pawn.rb'
+# none-type / pawn (lol pawn)
 require_relative './null_piece.rb'
-require_relative './king.rb'
-require_relative './knight.rb'
-require_relative './queen.rb'
+require_relative './pawn.rb'
+
+# stepers
+require_relative './stepers/king.rb'
+require_relative './stepers/knight.rb'
+
+# sliders
+require_relative './sliders/queen.rb'
+require_relative './sliders/rook.rb'
+require_relative './sliders/bishop.rb'
