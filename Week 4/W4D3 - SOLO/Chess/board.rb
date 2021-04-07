@@ -5,6 +5,7 @@ class Board
     
     
     def place_pieces
+        
         # black pieces
         @rows.each_with_index{|ele, i| @rows[1][i] = Pawn.new(:black, self, [1, i], :♟) }
         @rows[0][0] = Rook.new(:black, self, [0,0], :♜) 
@@ -54,6 +55,7 @@ class Board
     def move_piece(start_pos, end_pos) # might need a color agument later
         raise "empty cell" unless self.vaild_pos?(start_pos) && self[start_pos] != NullPiece.instance
         raise "can't move there" unless self.vaild_pos?(end_pos)
+
         if self[start_pos].move_to?(end_pos)
             in_hand = self[start_pos]
             self[start_pos] = NullPiece.instance
