@@ -1,0 +1,24 @@
+<% if action == :new %>
+    <% action_url = cat_rental_requests_url %>
+    <% button_text = 'create rental' %>
+<% else %>
+    <% action_url = cat_rental_request_url %>
+    <% button_text = 'update rental' %>
+<% end %>
+
+<form action=<%= action_url %> method="POST">
+
+    <label for="pick_cat">Pick a cat</label>
+    <select name="rental[cat_id]" id="pick_cat">
+        <% Cat.all.each do |cat| %>
+            <%= "<option value=#{cat.id}>#{cat.name}</option>" %>
+        <% end %>
+    </select>
+
+    <label for="start_date">Select a start date:</label>
+    <input type="date" id="start_date" name="rental[start_date]">
+
+    <label for="end_date">Select an end date:</label>
+    <input type="date" id="end_date" name="rental[end_date]">
+</form>
+

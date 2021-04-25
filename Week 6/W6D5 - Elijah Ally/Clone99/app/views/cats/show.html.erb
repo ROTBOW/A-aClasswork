@@ -1,0 +1,18 @@
+<!-- <%# <%= render "cat", cat: @cat, action: :show %> %> -->
+<a href=<%= cats_url %>>Return To All Cats</a>
+<table>
+    <tr>
+        <td></td>
+        <th scope="col">Birth Date</th>
+        <th scope="col">Color</th>
+        <th scope="col">Sex</th>
+        <th scope="col">Description</th>
+</tr>
+    <tr>
+    <th scope="row"><%= @cat.name %></th>
+    <td><%= @cat.birth_date %></td>
+    <td><%= @cat.color %></td>
+    <td><%= @cat.sex %></td>
+    <td><%= @cat.description %></td>
+    </tr>
+</table>
