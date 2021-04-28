@@ -1,0 +1,11 @@
+  [1m[35m (413.2ms)[0m  [1m[35mCREATE DATABASE "work_yes_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (306.0ms)[0m  [1m[35mCREATE DATABASE "work_yes_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2021-04-28 12:07:56 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/josiah/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.5/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/josiah/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.5/lib/rails/templates/rails/welcome/index.html.erb (1.3ms)
+Completed 200 OK in 7ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
