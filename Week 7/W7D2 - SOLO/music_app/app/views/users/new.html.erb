@@ -1,0 +1,9 @@
+<h1>create a account</h1>
+
+
+<% if flash[:errors] %>
+    <%= flash[:errors] %>
+<% end %>
+
+
+<%= render 'form', user: @user, action: 'POST' %>

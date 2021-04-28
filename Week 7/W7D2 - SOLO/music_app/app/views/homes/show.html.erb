@@ -1,0 +1,10 @@
+<h2>Welcome to this epic music site bro, we got all the greats</h2>
+
+<% if logged_in? %>
+
+    <h3>click this to see all the users<form action=<%= users_url %> method="GET"> <input type="submit" value="Users"> </form> </h3>
+    <h3>click this to see all the bands<form action=<%= bands_url %> method="GET"> <input type="submit" value="Bands"> </form></h3>
+
+<% else %>
+    <h3>Hey welome to our music site bro, if you look in the top right you can see where you can sign in/make an account<br>can't wait for you to join us bro!</h3>
+<% end %>

@@ -1,0 +1,46 @@
+ 
+
+<% if action == "POST" %>
+    <% action_url = albums_url %>
+    <% button_text = "add album" %>
+<% else %>
+    <% action_url = albums_url %>
+    <% button_text = "update album" %>
+<% end %>
+
+
+<form action=<%= action_url %> method="POST" >
+    <% if action == "PATCH" %>
+        <input type="hidden" name="_method" value="PATCH">
+    <% end %>
+    <%= auth_token %>
+    
+    <label>Band:
+        <select name="album[band_id]">
+            <% Band.all.each do |band| %>
+                <option value=<%= band.id %> <%= 'selected' if band.id == album.band_id %>><%= band.name %></option>
+            <% end %>
+        </select>
+    </label>
+    <br>
+
+    <label>Title:
+    <input type="text" name="album[title]" value="<%= album.title %>">
+    </label>
+    <br>
+
+    <label>Year:
+    <input type="number" name="album[year]" value="<%= album.year %>">
+    </label>
+    <br>
+
+    <label>Studio
+        <input type="radio" name="album[live_or_studio]" value="false" <%= "checked" if album.live_or_studio == 'false' %>>
+    </label>
+    <label>Live
+        <input type="radio" name="album[live_or_studio]" value="true" <%= "checked" if album.live_or_studio == 'true' %>>
+    </label>
+    <br>
+
+    <input type="submit" value="<%= button_text %>">
+</form>

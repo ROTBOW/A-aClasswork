@@ -1,0 +1,10 @@
+<h1>Uh, a booyah!<br>here is everyone we got bro.</h1>
+
+<% users = User.all %>
+
+<% users.each do |user| %>
+    <div class="userbox">
+        <h5><%= user.email %></h5>
+        <form action=<%= user_url(user) %> method="GET"> <%= auth_token %> <input type="submit" value="view user" > </form>
+    </div>
+<% end %>

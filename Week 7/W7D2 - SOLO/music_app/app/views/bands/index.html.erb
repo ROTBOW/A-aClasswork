@@ -1,0 +1,20 @@
+
+<h1>here be the bands</h1>
+<form action=<%= new_band_url %> method="GET"> <%= auth_token %> <input type="submit" value="Add Band" > </form>
+
+<% bands = Band.all %>
+
+
+<% bands.each do |band| %>
+    <div class="bandboxes">
+        <h4><%= band.name %></h4>
+        <ul>
+            <% albums = Album.where(band_id: band.id).pluck(:title) %>
+            <% albums.each do |album| %>
+                <li><%= album %></li>
+            <% end %>
+        </ul>
+        
+        <form action=<%= band_url(band) %> method="GET"> <input type="submit" value="More Dets Dude" > </form>
+    </div>
+<% end %>

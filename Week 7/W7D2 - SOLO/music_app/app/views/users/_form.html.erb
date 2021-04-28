@@ -1,0 +1,25 @@
+
+<% if action == 'POST' %>
+    <% action_url = users_url %>
+<% end %>
+
+
+
+<form action=<%= action_url %> method="POST">
+
+    <% if action = 'PATCH' %>
+        <!--<input type="hidden" name="_method" value="PATCH"> -->
+    <% end %>
+
+    <%= auth_token %>
+
+    <label>email:
+        <input type="text" name="user[email]">
+    </label>    
+
+    <label>Password:
+        <input type="text" name="user[password]">
+    </label>    
+
+    <input type="submit" value='create'>
+</form>

@@ -1,0 +1,7 @@
+<h2>User Page</h2>
+<% user = User.find_by(id: params[:id])  %>
+
+<div class="userbox">
+    <h4><%= user.email %></h4>
+    <form action=<%= users_url %> method="GET"> <%= auth_token %> <input type="submit" value="go back" > </form>
+</div>

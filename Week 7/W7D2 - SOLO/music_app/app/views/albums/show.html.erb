@@ -1,0 +1,12 @@
+<h3>check it bro, this album got it~</h3>
+
+<% album = Album.find_by(id: params[:id]) %>
+
+<h4><%= album.title %></h4>
+    <ul>
+        <li><%= album.year %></li>
+        <li><%= (album.live_or_studio=="true") ? "Live" : "Studio" %></li>
+    </ul>
+<form action=<%= edit_album_url(album) %>><%= auth_token %> <input type="submit" value="Edit This Album" > </form>
+<form action=<%= album_url(album) %> method="POST"> <input type="hidden" name="_method" value="DELETE"> <%= auth_token %> <input type="submit" value="Delete This Album" > </form>
+<form action=<%= band_url(album.band_id) %> method="GET"> <%= auth_token %> <input type="submit" value="Go Back" > </form>

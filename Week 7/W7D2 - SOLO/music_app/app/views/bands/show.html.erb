@@ -1,0 +1,17 @@
+<% band = Band.find_by(id: params[:id]) %>
+
+<div class="bandboxes">
+    <h4><%= band.name %></h4>
+    <ul>
+            <% albums = Album.where(band_id: band.id) %>
+            <% albums.each do |album| %>
+                <li><a href="<%= album_url(album)%>"><%= album.title %></a></li>
+            <% end %>
+    </ul>
+
+    <form action=<%= new_band_album_url(band) %> method="GET"> <%= auth_token %> <input type="submit" value="Add Album" > </form>
+    <form action=<%= edit_band_url(band) %> method="GET"> <%= auth_token %> <input type="submit" value="Edit" > </form>
+    <form action=<%= band_url(band) %> method="POST"> <input type="hidden" name="_method" value="DELETE"> <%= auth_token %> <input type="submit" value="Delete This Band" > </form>
+    <form action=<%= bands_url %> method="GET"> <%= auth_token %> <input type="submit" value="Go Back" > </form>
+</div>
+
