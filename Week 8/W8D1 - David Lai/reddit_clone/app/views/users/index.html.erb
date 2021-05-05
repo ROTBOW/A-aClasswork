@@ -1,0 +1,7 @@
+<h1>Here are all the users!</h1>
+
+
+<% @users.each do |user| %>
+    <label><a href="<%= user_url(user) %>"><%= user.username %></a></label>
+<% end %>
+
